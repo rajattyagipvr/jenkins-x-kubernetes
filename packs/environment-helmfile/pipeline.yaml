@@ -3,7 +3,7 @@ extends:
   file: pipeline.yaml
 agent:
   label: jenkins-go
-  container: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/jxl:0.0.186
+  container: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/jxl
 pipelines:
   release:
     pipeline:
@@ -74,7 +74,7 @@ pipelines:
           command: jx
           dir: /workspace/source
           name: verify-ingress
-          image: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/jxl:0.0.186
+          image: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/jxl
         - args:
           - sync
           command: helmfile
@@ -128,7 +128,7 @@ pipelines:
       stages:
       - name: pr-checks
         agent:
-          image: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/jxl:0.0.186
+          image: 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/jxl
         options:
           volumes:
           - name: jx-boot-secrets
@@ -168,6 +168,3 @@ pipelines:
           command: helmfile
           dir: /workspace/source/apps
           name: lint-helmfile-apps
-
-
-
